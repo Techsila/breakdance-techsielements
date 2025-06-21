@@ -1,0 +1,18 @@
+{% set iconClass = content.icon.icon_class ?: 'fa-solid fa-heart' %}
+{% set colorMode = content.icon.color_mode ?: 'static' %}
+{% set staticColor = content.icon.static ?: '#000000' %}
+{% set rawGradient = content.icon.gradient is defined and content.icon.gradient ? content.icon.gradient : { value: 'linear-gradient(135deg, #ff6a00, #ee0979)' } %}
+
+{% set gradientColor = rawGradient.value is defined ? rawGradient.value : rawGradient %}
+{% set size = (content.icon.icon_size_px_ | default(48)) ~ 'px' %}
+
+<div class="icon-plus {{ colorMode }}" style="
+  --icon-size: {{ size }};
+  {% if colorMode == 'gradient' %}
+    --color: {{ gradientColor }};
+  {% elseif colorMode == 'static' %}
+    --color: {{ staticColor }};
+  {% endif %}
+">
+  <i class="{{ iconClass }}"></i>
+</div>

@@ -1,0 +1,38 @@
+.icon-plus {
+  --s: var(--icon-size, 48px);
+  font-size: var(--s);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--s);
+  min-height: var(--s);
+  padding: 4px;
+  line-height: 1;
+  text-align: center;
+  overflow: visible;
+}
+
+.icon-plus i {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0.1em;
+  box-sizing: content-box;
+  overflow: visible;
+}
+
+/* Static (solid) color mode */
+.icon-plus.static i {
+  color: var(--color);
+}
+
+/* Gradient text mode */
+.icon-plus.gradient i {
+  background: var(--color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

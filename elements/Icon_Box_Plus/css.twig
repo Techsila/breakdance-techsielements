@@ -1,0 +1,112 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  height: {{ design.container.height.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_complex(design.container.padding, 'padding') }}
+  box-shadow: {{ design.container.shadow.style }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .ee-iconbox-inner {
+  display: flex;
+  gap: {{ design.spacing.after_icon.style }};
+
+  {# Default based on position #}
+  {% if design.icon.position == 'top' %}
+    flex-direction: column !important;
+  {% elseif design.icon.position == 'bottom' %}
+    flex-direction: column-reverse !important;
+  {% elseif design.icon.position == 'right' %}
+    flex-direction: row-reverse !important;
+  {% else %}
+    flex-direction: row;
+  {% endif %}
+
+  {% if design.container.alignment == 'left' %}
+    align-items: flex-start;
+  {% elseif design.container.alignment == 'center' %}
+    align-items: center;
+  {% elseif design.container.alignment == 'right' %}
+    align-items: flex-end;
+  {% endif %}
+
+  {# ✅ TOP_AT override (forces top layout at breakpoint) #}
+  {% if breakpoint == design.icon.top_at %}
+    flex-direction: column !important;
+
+    {% if design.container.alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.container.alignment == 'center' %}
+      align-items: center;
+    {% elseif design.container.alignment == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+  {% endif %}
+
+  {# ✅ LEFT_AT override (forces left layout at breakpoint) #}
+  {% if breakpoint == design.icon.left_at %}
+    flex-direction: row !important;
+
+    {% if design.container.alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.container.alignment == 'center' %}
+      align-items: center;
+    {% elseif design.container.alignment == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-iconbox-iconwrapper {
+  {% if design.icon.vertical_alignment == 'top' %}
+    align-self: flex-start;
+  {% elseif design.icon.vertical_alignment == 'middle' %}
+    align-self: center;
+  {% elseif design.icon.vertical_alignment == 'bottom' %}
+    align-self: flex-end;
+  {% endif %}
+}
+
+%%SELECTOR%% .icon-plus {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--icon-size);
+  color: var(--color);
+}
+
+%%SELECTOR%% .ee-iconbox-content {
+  display: flex;
+  flex-direction: column;
+
+  {% if design.container.alignment == 'left' %}
+    align-items: flex-start;
+    text-align: left;
+  {% elseif design.container.alignment == 'center' %}
+    align-items: center;
+    text-align: center;
+  {% elseif design.container.alignment == 'right' %}
+    align-items: flex-end;
+    text-align: right;
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-iconbox-title {
+  {{ macros.typography(design.typography.title, globalSettings) }}
+  margin-bottom: {{ design.spacing.below_title.style }};
+}
+
+%%SELECTOR%% .ee-iconbox-text {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+}
+
+%%SELECTOR%% .ee-iconbox-button {
+  margin-top: {{ design.spacing.above_button.style }};
+}
+
+{{ macros.atomV1ButtonCss(design.button, 'ee-iconbox-button', '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+%%SELECTOR%% .icon-plus i {
+  transform: rotate({{ content.content.rotate }}deg);
+}

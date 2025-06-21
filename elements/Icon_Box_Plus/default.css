@@ -1,0 +1,68 @@
+.breakdance .bde-icon-box {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  gap: 32px;
+  flex: 1;
+}
+
+.breakdance .bde-icon-box .ee-iconbox-title {
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.breakdance .bde-icon-box .ee-iconbox-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.breakdance .bde-icon-box .ee-iconbox-button {
+  margin-top: 32px;
+}
+
+
+.icon-plus i {
+  background: var(--color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.icon-plus {
+  --s: var(--icon-size, 48px);
+  font-size: var(--s);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--s);
+  min-height: var(--s);
+  padding: 4px;
+  line-height: 1;
+  text-align: center;
+  overflow: visible;
+}
+
+.icon-plus i {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  font-size: inherit;
+  line-height: inherit;
+  overflow: visible;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  box-sizing: content-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0 !important;
+}

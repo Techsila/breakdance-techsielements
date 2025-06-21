@@ -1,0 +1,46 @@
+{# Setup values #}
+{% set showIcon = content.content.show_icon is not defined or content.content.show_icon %}
+{% set iconClass = content.content.icon_class ?: 'fa-solid fa-heart' %}
+{% set size = (design.icon.size | default(48)) ~ 'px' %}
+{% set colorMode = design.icon.color_mode ?: 'static' %}
+{% set staticColor = design.icon.static ?: '#000000' %}
+{% set rawGradient = design.icon.gradient %}
+{% set rotate = content.content.rotate ?: '0' %}
+{% set gradientColor = rawGradient is iterable and rawGradient.value is defined
+  ? rawGradient.value
+  : (rawGradient ?: 'linear-gradient(to right, #00f, #0ff)') %}
+
+<div class="ee-iconbox-inner">
+  {% if showIcon %}
+    <div class="ee-iconbox-iconwrapper">
+      <div class="icon-plus {{ colorMode }}" style="
+        --icon-size: {{ size }};
+        {% if colorMode == 'gradient' %}
+          --color: {{ gradientColor }};
+        {% else %}
+          --color: {{ staticColor }};
+        {% endif %}
+      ">
+        <i class="{{ iconClass }}"></i>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="ee-iconbox-content">
+    {% if content.content.title %}
+      <{{ content.content.title_tag|default('p') }} class="ee-iconbox-title bde-h3" {{ dataContentEditablePropertyPath('content.content.title') }}>
+        {{ content.content.title }}
+      </{{ content.content.title_tag|default('p') }}>
+    {% endif %}
+
+    {% if content.content.text %}
+      <div class="ee-iconbox-text" {{ dataContentEditablePropertyPath('content.content.text') }}>
+        {{ content.content.text }}
+      </div>
+    {% endif %}
+
+    {% if content.content.button.text %}
+      {{ macros.atomV1ButtonHtml(content.content.button, 'ee-iconbox-button', design.button, 'content.content.button.text') }}
+    {% endif %}
+  </div>
+</div>
