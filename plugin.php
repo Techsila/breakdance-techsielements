@@ -1,18 +1,5 @@
 <?php
 
-/**
- * Plugin Name: Breakdance TechsiElements
- * Plugin URI: https://techsila.net
- * Description: Boilerplate plugin to save your custom elements created with Element Studio.
- * Author: Techsila
- * Author URI: https://techsila.net
- * License: GPLv2
- * Text Domain: techsila
- * Domain Path: /languages/
- * Version: 0.0.1
- * GitHub Plugin URI: https://github.com/Techsila/breakdance-techsielements
- */
-
 namespace BreakdanceCustomElements;
 
 use function Breakdance\Util\getDirectoryPathRelativeToPluginFolder;
@@ -31,7 +18,7 @@ add_action('breakdance_loaded', function () {
         'TechsiCustom',
         'macro',
         'TechsiMacros',
-        false,
+        false
     );
 
     \Breakdance\ElementStudio\registerSaveLocation(
@@ -39,9 +26,6 @@ add_action('breakdance_loaded', function () {
         'TechiCustom',
         'preset',
         'TechiPresets',
-        false,
+        false
     );
-},
-    // register elements before loading them
-    9
-);
+}, 9);
