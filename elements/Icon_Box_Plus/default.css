@@ -36,7 +36,7 @@
 }
 
 .icon-plus {
-
+  --s: var(--icon-size, 48px);
   font-size: var(--s);
   display: inline-flex;
   align-items: center;
