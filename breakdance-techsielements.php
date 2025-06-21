@@ -1,3 +1,4 @@
+<?php
 /**
  * Plugin Name: Breakdance TechsiElements
  * Plugin URI: https://techsila.net
