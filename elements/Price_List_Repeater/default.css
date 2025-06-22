@@ -17,30 +17,22 @@
 .breakdance .bde-price-list__price {
   font-weight: 700;
   text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .bde-price-list__item {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  line-height: 1.1
+  line-height: 1.1;
 }
 
-.breakdance .bde-price-list__price {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 .breakdance .bde-price-list__price-group {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-
-.breakdance .bde-price-list__price {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .breakdance .bde-price-list__unit-line {
