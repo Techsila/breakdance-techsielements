@@ -8,7 +8,7 @@ Author URI: https://techsila.net
 License: GPLv2
 Text Domain: techsila
 Domain Path: /languages/
-Version: 0.0.3
+Version: 0.0.4
 GitHub Plugin URI: https://github.com/Techsila/breakdance-techsielements
 GitHub Branch: main
 */
