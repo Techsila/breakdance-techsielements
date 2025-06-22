@@ -7,11 +7,11 @@ use function Breakdance\Elements\PresetSections\getPresetSection;
 
 
 \Breakdance\ElementStudio\registerElementForEditing(
-    "TechsiCustom\\PriceList",
+    "TechsiCustom\\PriceListRepeater",
     \Breakdance\Util\getdirectoryPathRelativeToPluginFolder(__DIR__)
 );
 
-class PriceList extends \Breakdance\Elements\Element
+class PriceListRepeater extends \Breakdance\Elements\Element
 {
     static function uiIcon()
     {

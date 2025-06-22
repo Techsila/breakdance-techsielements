@@ -1,0 +1,31 @@
+{% for item in content.content.items %}
+  <div class="bde-price-list__row {% if loop.index is even %}bde-price-list__row-alt{% endif %}">
+    <div class="bde-price-list__item">
+      <div class="bde-price-list__item-name">{{ item.title }}</div>
+      {% if item.description %}
+        <div class="bde-price-list__item-description">{{ item.description }}</div>
+      {% endif %}
+    </div>
+    <div class="bde-price-list__price-group">
+      <div class="bde-price-list__price">
+        {% set order = item.price.currency_order|default('before') %}
+        
+        {% if order == 'before' %}
+          <span class="bde-price-list__currency">{{ item.price.currency_symbol }}</span>
+          <span class="bde-price-list__amount">
+            {{ item.price.price }}{% if item.price.add_ %},-{% endif %}
+          </span>
+        {% elseif order == 'after' %}
+          <span class="bde-price-list__amount">
+            {{ item.price.price }}{% if item.price.add_ %},-{% endif %}
+          </span>
+          <span class="bde-price-list__currency bde-price-list__currency--after">{{ item.price.currency_symbol }}</span>
+        {% endif %}
+      </div>
+
+      {% if item.price.unit %}
+        <div class="bde-price-list__unit-line">{{ item.price.unit }}</div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}

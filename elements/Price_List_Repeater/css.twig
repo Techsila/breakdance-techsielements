@@ -1,0 +1,39 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.container.width.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  box-shadow: {{ design.container.shadow.style }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+}
+
+%%SELECTOR%% .bde-price-list__row {
+  {{ macros.spacing_padding_all(design.rows.padding) }}
+}
+
+%%SELECTOR%% .bde-price-list__row:nth-child(odd) {
+  {{ macros.backgroundColor(design.rows.background_a) }}
+}
+%%SELECTOR%% .bde-price-list__row:nth-child(even) {
+  {{ macros.backgroundColor(design.rows.background_b) }}
+}
+
+%%SELECTOR%% .bde-price-list__row:not(:last-child) {
+  {% if design.rows.border %}
+    border-bottom: 1px solid {{ design.rows.border_color|default('black') }};
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-price-list__item-name {
+  {{ macros.typography(design.typography.title, globalSettings) }}
+}
+
+%%SELECTOR%% .bde-price-list__item-description {
+  {{ macros.typography(design.typography.description, globalSettings) }}
+}
+
+%%SELECTOR%% .bde-price-list__price {
+  {{ macros.typography(design.typography.price, globalSettings) }}
+  text-align: right;
+  white-space: nowrap;
+}
